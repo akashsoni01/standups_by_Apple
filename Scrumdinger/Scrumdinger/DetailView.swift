@@ -53,6 +53,14 @@ struct DetailView: View {
                 .accessibilityElement(children: .combine)
 
             }
+            // In DetailView.swift, create a Section with a header of "Attendees" to group the attendee information.
+            Section(header: Text("Attendees")) {
+                // Add a ForEach to dynamically generate the list of attendees, and pass scrum.attendees as the data.
+                ForEach(scrum.attendees) { attendee in
+                    // Add a Label to display the attendee.name with a person icon.
+                    Label(attendee.name, systemImage: "person")
+                }
+            }
 
         }
 
