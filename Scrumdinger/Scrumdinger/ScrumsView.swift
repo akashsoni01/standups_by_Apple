@@ -41,9 +41,16 @@ struct ScrumsView: View {
                  // the list row background moved to link
                  */
                 // after navigation link
-                NavigationLink(destination: Text(scrum.title)) {
+                /*
+                 NavigationLink(destination: Text(scrum.title)) {
+                     CardView(scrum: scrum)
+                 }
+                 */
+                // After destination view add
+                NavigationLink(destination: DetailView(scrum: scrum)) {
                     CardView(scrum: scrum)
                 }
+
                 // Set the background color of the row to scrum.theme.mainColor.
                     .listRowBackground(scrum.theme.mainColor)
             }
