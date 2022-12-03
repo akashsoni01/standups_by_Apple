@@ -37,8 +37,20 @@ struct DetailView: View {
                 // Add accessibilityElement(children:) to the HStack to combine the Label and Text elements for accessibility users.
                 // VoiceOver then reads the two elements as one statement, for example, “Length, 10 minutes.” Without the modifier, VoiceOver users have to swipe again between each element.
                 .accessibilityElement(children: .combine)
-
                 // - end
+                // add a Spacer(), and display the theme name in a Text view. Add accessibilityElement(children:) to the HStack to combine the Label and Text elements in VoiceOver.
+                HStack {
+                    Label("Theme", systemImage: "paintpalette")
+                    Spacer()
+                    Text(scrum.theme.name)
+                    // Style the Text view by adding padding, foreground and background colors, and a corner radius.
+                        .padding(4)
+                        .foregroundColor(scrum.theme.accentColor)
+                        .background(scrum.theme.mainColor)
+                        .cornerRadius(4)
+
+                }
+                .accessibilityElement(children: .combine)
 
             }
 
