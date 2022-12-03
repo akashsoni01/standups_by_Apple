@@ -41,6 +41,7 @@ struct ScrumsView: View {
                  // the list row background moved to link
                  */
                 // after navigation link
+                // Before destination view add
                 /*
                  NavigationLink(destination: Text(scrum.title)) {
                      CardView(scrum: scrum)
