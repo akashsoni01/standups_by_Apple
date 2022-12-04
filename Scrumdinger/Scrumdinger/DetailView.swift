@@ -96,7 +96,7 @@ struct DetailView: View {
              */
             // After embed in nav
             // Embed DetailEditView in a NavigationView.
-            // Example of presenting a view with navigation view as nav doesn't embed by default on presenting 
+            // Example of presenting a view with navigation view as nav doesn't embed by default on presenting
             NavigationView {
                 DetailEditView()
                 // Set the navigation title of the edit view.

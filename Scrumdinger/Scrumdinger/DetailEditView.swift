@@ -106,3 +106,29 @@ struct DetailEditView_Previews: PreviewProvider {
     }
 }
 
+
+
+/*
+ Which modifier can you add to the button to present EditView?
+ 
+ struct ContentView: View {
+     @State private var isPresented = false
+     var body: some View {
+         Button(action: { isPresented = true }) {
+             Text("Edit")
+         }
+     }
+ }
+ 
+ Answer
+ 
+ Button(action: { isPresented = true }) {
+     Text("Edit")
+ }
+ .sheet(isPresented: $isPresented) {
+     EditView()
+ }
+ 
+The sheet modifier takes a binding to a Bool and a view builder.
+ */
+
