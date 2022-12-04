@@ -21,7 +21,18 @@ struct DetailView: View {
                 // Tapping this row does nothing. But in the future, it will navigate users to the meeting view.
                 // By default, VoiceOver reads the title of the Label. If you want VoiceOver to convey more detail, replace the default spoken text by adding an accessibilityLabel that describes the element.
                 
-                Label("Start Meeting", systemImage: "timer")
+                /*
+                 // before navigation link added on label tap. It was a simple label.
+                 Label("Start Meeting", systemImage: "timer")
+                 */
+                // After navigation link added on label tap with destination Meeting View - Start
+                // Adding NavigationLink wraps the label in a gesture recognizer so that users can tap this row to transition to the meeting timer screen.
+                NavigationLink(destination: MeetingView()){                    Label("Start Meeting", systemImage: "timer")
+                        .font(.headline)
+                        .foregroundColor(.accentColor)
+                }
+                // After navigation link added on label tap move to Meeting View - End
+                
                 // Alter the appearance of the label by adding foregroundColor and font modifiers.
                 // This row is an interactive element. To use the same color as other interactive elements, use accentColor.
                     .font(.headline)
@@ -63,9 +74,13 @@ struct DetailView: View {
             }
 
         }
-
+        // Display the scrum title by setting .navigationTitle(scrum.title) on the List.
+        .navigationTitle(scrum.title)
     }
 }
+// SwiftUI automatically includes the animations when pushing and popping from the navigation stack.
+
+
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
