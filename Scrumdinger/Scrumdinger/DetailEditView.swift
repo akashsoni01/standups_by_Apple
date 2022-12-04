@@ -41,10 +41,18 @@ struct DetailEditView: View {
                             // The Text view won’t appear on screen, but VoiceOver uses it to identify the purpose of the slider.
                             Text("Length")
                         }
+                        .accessibilityValue("\(Int(data.lengthInMinutes)) minutes")
                     }
                     // Add a Spacer and Text to display the meeting length.
                     Spacer()
                     Text("\(Int(data.lengthInMinutes)) minutes")
+                    // Hide the text view from VoiceOver.
+                    // All the information that VoiceOver needs is in the accessibility value for the slider.
+                        .accessibilityHidden(true)
+
+
+                    
+
                 }
             }
             // Add a second Section with an “Attendees” header.
@@ -80,6 +88,8 @@ struct DetailEditView: View {
                         }
                     }) {
                         Image(systemName: "plus.circle.fill")
+                        // Add an accessibility label to the image.
+                            .accessibilityLabel("Add attendee")
                     }
                     // Disable the button if newAttendeeName is empty.
                     .disabled(newAttendeeName.isEmpty)
