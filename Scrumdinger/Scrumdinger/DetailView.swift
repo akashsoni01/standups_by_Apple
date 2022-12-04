@@ -9,6 +9,8 @@ import SwiftUI
 
 struct DetailView: View {
     let scrum: DailyScrum
+    // In DetailView.swift, add a @State property named isPresentingEditView.
+    @State private var isPresentingEditView = false
 
     var body: some View {
         // You’ll use the list to display static subviews in a single column with rows. In the next section of this tutorial, you’ll dynamically build list rows.
@@ -76,6 +78,47 @@ struct DetailView: View {
         }
         // Display the scrum title by setting .navigationTitle(scrum.title) on the List.
         .navigationTitle(scrum.title)
+        // Add a toolbar button that sets isPresentingEditView to true.
+        .toolbar {
+            Button("Edit") {
+                isPresentingEditView = true
+            }
+        }
+        // Add a sheet modifier on List.
+        // When isPresentingEditView changes to true, the app presents DetailEditView using a modal sheet that partially covers the underlying content.
+        // Modal views remove users from the main navigation flow of the app. Use modality for short, self-contained tasks. For more information about the different types of modal presentation and when to use modality effectively in your apps, see Modality in the Human Interface Guidelines.
+        .sheet(isPresented: $isPresentingEditView) {
+            // Before embed in nav
+            /*
+             NavigationView {
+                 DetailEditView()
+             }
+             */
+            // After embed in nav
+            // Embed DetailEditView in a NavigationView.
+            // Example of presenting a view with navigation view as nav doesn't embed by default on presenting 
+            NavigationView {
+                DetailEditView()
+                // Set the navigation title of the edit view.
+                    .navigationTitle(scrum.title)
+                // Add a toolbar
+                    .toolbar {
+                        // Add a toolbar button that indicates to the user that they’re canceling changes to the scrum details. Dismiss DetailEditView in the Cancel button action.
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button("Cancel") {
+                                isPresentingEditView = false
+                            }
+                        }
+                        // Add a toolbar button that indicates to the user that they’re saving changes. Dismiss DetailEditView in the Done button action.
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button("Done") {
+                                isPresentingEditView = false
+                            }
+                        }
+
+                    }
+            }
+        }
     }
 }
 // SwiftUI automatically includes the animations when pushing and popping from the navigation stack.
