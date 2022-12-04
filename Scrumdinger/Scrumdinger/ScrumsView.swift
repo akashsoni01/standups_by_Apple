@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ScrumsView: View {
-    let scrums: [DailyScrum]
+    @Binding var scrums: [DailyScrum]
 
     var body: some View {
         // The List initializer in this step accepts a ViewBuilder as its only parameter. So, you can add rows with the same syntax you’ve been using with other container views such as HStack and VStack.
@@ -74,8 +74,46 @@ struct ScrumsView_Previews: PreviewProvider {
     static var previews: some View {
         // Adding the NavigationView displays navigation elements, like title and bar buttons, on the canvas. For now, the preview displays padding for a navigation title.
         NavigationView {
-            ScrumsView(scrums: DailyScrum.sampleData)
+            ScrumsView(scrums: .constant(DailyScrum.sampleData))
         }
     }
 }
 
+
+/*
+ Which code snippet displays LoginMessageView in the preview canvas?
+
+ struct LoginMessageView: View {
+    @Binding var name: String
+    var body: some View {
+       Text("Welcome back, \(name)")
+    }
+ }
+
+ Answer
+ 
+ struct LoginMessageView_Previews: PreviewProvider {
+    static var previews: some View {
+       LoginMessageView()
+    }
+ }
+
+
+ 
+ Which code snippet lets ChildView modify the message that appears in ParentView?
+
+ Answer
+ 
+ struct ParentView: View {
+     @State private var message = "Hello world"
+     var body: some View {
+         VStack {
+             ChildView(text: $message)
+             if !message.isEmpty {
+                 Text(message)
+             }
+         }
+     }
+ }
+ You can use bindings to pass data to different views that need to mutate it.
+ */
