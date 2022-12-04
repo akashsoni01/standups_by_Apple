@@ -41,18 +41,9 @@ struct DailyScrum: Identifiable {
         }
 }
 
+// In DailyScrum.swift, create an extension.
 extension DailyScrum {
-    static let sampleData: [DailyScrum] =
-    [
-        DailyScrum(title: "Design", attendees: ["Cathy", "Daisy", "Simon", "Jonathan"], lengthInMinutes: 10, theme: .yellow),
-        DailyScrum(title: "App Dev", attendees: ["Katie", "Gray", "Euna", "Luis", "Darla"], lengthInMinutes: 5, theme: .orange),
-        DailyScrum(title: "Web Dev", attendees: ["Chella", "Chris", "Christina", "Eden", "Karla", "Lindsey", "Aga", "Chad", "Jenn", "Sarah"], lengthInMinutes: 5, theme: .poppy)
-    ]
-}
-
-
-// In DailyScrum.swift, create an extension with an inner structure named Attendee that is identifiable.
-extension DailyScrum {
+    // with an inner structure named Attendee that is identifiable.
     struct Attendee: Identifiable {
         let id: UUID
         var name: String
@@ -63,5 +54,33 @@ extension DailyScrum {
             self.name = name
         }
     }
+    
+    // In DailyScrum.swift, define the Data structure inside an extension of DailyScrum.
+    // Users adjust a meeting’s length with a Slider view. Because sliders work with Double values, you define lengthInMinutes as a Double.
+    // By making Data a nested type, you keep DailyScrum.Data distinct from the Data structure defined in the Foundation framework.
+    struct Data {
+        // Assign default values to all properties.
+        // If all properties have default values, the compiler creates an initializer that takes no arguments. With this initializer, you can create a new instance by calling Data().
+        var title: String = ""
+        var attendees: [Attendee] = []
+        var lengthInMinutes: Double = 5
+        var theme: Theme = .seafoam
+    }
+
 }
 
+extension DailyScrum {
+    static let sampleData: [DailyScrum] =
+    [
+        DailyScrum(title: "Design", attendees: ["Cathy", "Daisy", "Simon", "Jonathan"], lengthInMinutes: 10, theme: .yellow),
+        DailyScrum(title: "App Dev", attendees: ["Katie", "Gray", "Euna", "Luis", "Darla"], lengthInMinutes: 5, theme: .orange),
+        DailyScrum(title: "Web Dev", attendees: ["Chella", "Chris", "Christina", "Eden", "Karla", "Lindsey", "Aga", "Chad", "Jenn", "Sarah"], lengthInMinutes: 5, theme: .poppy)
+    ]
+    
+    // Add a computed data property that returns Data with the DailyScrum property values.
+    // Remember to cast lengthInMinutes to a Double. All other properties have a matching type.
+    var data: Data {
+        Data(title: title, attendees: attendees, lengthInMinutes: Double(lengthInMinutes), theme: theme)
+    }
+
+}
