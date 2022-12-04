@@ -9,10 +9,6 @@ import SwiftUI
 // Create a new SwiftUI View file named ThemeView.swift.
 // You might define a list cell in the same file as the list view structure. By defining the cell in a separate file, you can more easily reuse it in a future project.
 // The model for this view is a single instance of Theme.
-
-
-
-
 struct ThemeView: View {
     // Create a theme constant and pass a value in the preview.
     let theme: Theme
@@ -23,9 +19,9 @@ struct ThemeView: View {
             // Because a ZStack overlays views back to front, the RoundedRectangle acts as a background and appears behind the views listed below it.
             RoundedRectangle(cornerRadius: 4)
                 .fill(theme.mainColor)
+            Label(theme.name, systemImage: "paintpalette")
             // Replace the text view with a label that displays the theme name and the paintpalette system image.
             // Low contrast between the theme’s main color and the default label text color can make this view difficult to read.
-            Label(theme.name, systemImage: "paintpalette")
             // Add a padding of 4 to the label.
                 .padding(4)
 

@@ -10,7 +10,12 @@ import SwiftUI
 // Add cases for each color listed in the Themes folder in the asset catalog.
 // Named colors in the asset catalog must match their references in code, so make sure to spell each case correctly.
 
-enum Theme: String {
+// Before CaseIterable and Identifiable
+// enum Theme: String { }
+
+// After CaseIterable and Identifiable
+// In Theme.swift, add conformance to CaseIterable and Identifiable, using the theme name as its id.
+enum Theme: String, CaseIterable, Identifiable {
     case bubblegum
     case buttercup
     case indigo
@@ -47,6 +52,15 @@ enum Theme: String {
     var name: String {
         rawValue.capitalized
     }
-
+    
+    // After CaseIterable and Identifiable
+    var id: String {
+        name
+    }
 }
+// you can now add code wit foreach
+/*
+ ForEach(Theme.allCases) { theme in
 
+            }
+ */

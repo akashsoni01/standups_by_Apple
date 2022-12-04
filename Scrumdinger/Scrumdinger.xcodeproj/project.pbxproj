@@ -19,6 +19,7 @@
 		84B1B21F293B62C40022D56C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1B21E293B62C40022D56C /* DetailView.swift */; };
 		84B1B221293C7E430022D56C /* DetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1B220293C7E430022D56C /* DetailEditView.swift */; };
 		84B1B223293C8A120022D56C /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1B222293C8A120022D56C /* ThemeView.swift */; };
+		84B1B225293C8CE40022D56C /* ThemePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B1B224293C8CE40022D56C /* ThemePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		84B1B21E293B62C40022D56C /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		84B1B220293C7E430022D56C /* DetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEditView.swift; sourceTree = "<group>"; };
 		84B1B222293C8A120022D56C /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
+		84B1B224293C8CE40022D56C /* ThemePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				84B1B220293C7E430022D56C /* DetailEditView.swift */,
 				8470D8C0293B13D90020D30F /* MeetingView.swift */,
 				84B1B222293C8A120022D56C /* ThemeView.swift */,
+				84B1B224293C8CE40022D56C /* ThemePicker.swift */,
 				8470D8D2293B24750020D30F /* CardView.swift */,
 				8470D8C2293B13DB0020D30F /* Assets.xcassets */,
 				8470D8C4293B13DB0020D30F /* Scrumdinger.entitlements */,
@@ -171,6 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B1B225293C8CE40022D56C /* ThemePicker.swift in Sources */,
 				8470D8D1293B213A0020D30F /* DailyScrum.swift in Sources */,
 				84B1B21F293B62C40022D56C /* DetailView.swift in Sources */,
 				84B1B221293C7E430022D56C /* DetailEditView.swift in Sources */,

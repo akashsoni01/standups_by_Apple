@@ -64,7 +64,7 @@ extension DailyScrum {
         var title: String = ""
         var attendees: [Attendee] = []
         var lengthInMinutes: Double = 5
-        var theme: Theme = .seafoam
+        var theme: Theme = .orange
     }
 
 }

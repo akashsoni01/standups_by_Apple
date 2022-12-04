@@ -30,31 +30,27 @@ struct DetailEditView: View {
         // The Form container automatically adapts the appearance of controls when it renders on different platforms.
         Form {
             Section(header: Text("Meeting Info")) {
-                Section(header: Text("Meeting Info")) {
-                    // Inside Section, add a TextField for the meeting title.
-                    // TextField takes a binding to a String. You can use the $ syntax to create a binding to data.title. The current view manages the state of the data property.
-                    TextField("Title", text: $data.title)
-                    // Add an HStack and a Slider for the meeting length. In the slider’s label closure, add a Text view for accessibility use.
-                    // A Slider stores a Double from a continuous range that you specify. Passing a step value of 1 limits the user to choosing whole numbers.
-                    HStack {
-                        Slider(value: $data.lengthInMinutes, in: 5...30, step: 1) {
-                            // The Text view won’t appear on screen, but VoiceOver uses it to identify the purpose of the slider.
-                            Text("Length")
-                        }
-                        .accessibilityValue("\(Int(data.lengthInMinutes)) minutes")
+                // Inside Section, add a TextField for the meeting title.
+                // TextField takes a binding to a String. You can use the $ syntax to create a binding to data.title. The current view manages the state of the data property.
+                TextField("Title", text: $data.title)
+                // Add an HStack and a Slider for the meeting length. In the slider’s label closure, add a Text view for accessibility use.
+                // A Slider stores a Double from a continuous range that you specify. Passing a step value of 1 limits the user to choosing whole numbers.
+                HStack {
+                    Slider(value: $data.lengthInMinutes, in: 5...30, step: 1) {
+                        // The Text view won’t appear on screen, but VoiceOver uses it to identify the purpose of the slider.
+                        Text("Length")
                     }
+                    .accessibilityValue("\(Int(data.lengthInMinutes)) minutes")
                     // Add a Spacer and Text to display the meeting length.
                     Spacer()
                     Text("\(Int(data.lengthInMinutes)) minutes")
                     // Hide the text view from VoiceOver.
                     // All the information that VoiceOver needs is in the accessibility value for the slider.
                         .accessibilityHidden(true)
-
-
-                    
-
                 }
+                ThemePicker(selection: $data.theme)
             }
+            
             // Add a second Section with an “Attendees” header.
             Section(header: Text("Attendees")) {
                 // Add a ForEach view, and display each attendee in a Text view.
